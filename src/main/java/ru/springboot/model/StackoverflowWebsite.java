@@ -1,19 +1,22 @@
 package ru.springboot.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
-@Document
+@Entity
 public class StackoverflowWebsite {
     @Id
-    private final String id;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private final Long id;
     private final String iconImageUrl;
 
     private final String website;
     private final String title;
     private final String desscriptio;
 
-    public StackoverflowWebsite(String iconImageUrl, String id, String website, String title, String desscriptio) {
+    public StackoverflowWebsite(String iconImageUrl, Long id, String website, String title, String desscriptio) {
         this.iconImageUrl = iconImageUrl;
         this.id = id;
         this.website = website;
@@ -25,7 +28,7 @@ public class StackoverflowWebsite {
         return iconImageUrl;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

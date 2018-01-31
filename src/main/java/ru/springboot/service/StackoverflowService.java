@@ -4,9 +4,10 @@ package ru.springboot.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.springboot.model.StackoverflowWebsite;
+import ru.springboot.model.Stackoverflow;
 import ru.springboot.persistence.StackoverflowWebsiteRepository;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,30 +16,12 @@ public class StackoverflowService {
     @Autowired
     StackoverflowWebsiteRepository repository;
 
-    public List<StackoverflowWebsite> findAll() {
+    public Iterable<Stackoverflow> findAll() {
 
-        repository.findAll(); //fun with Java 8
-
+       return repository.findAll();
     }
 
+
+
+
 }
-
-//    private static List<StackoverflowWebsite> item = new ArrayList<StackoverflowWebsite>();
-//
-//    static {
-//        item.add(new StackoverflowWebsite("", "sxsxsxsxsxsx", "sxsxsxsxsxs",
-//                "sxsxsxsxsx", "sxsxsxsxxs"));
-//        item.add(new StackoverflowWebsite("", "sdsdsdsds", "sdsdsds",
-//                "sdsdsdsd", "sdsdsdsdsdsds"));
-//        item.add(new StackoverflowWebsite("", "ghnghnghng", "ghnhgnghnghn",
-//                "ghnghnghng", "nghnghnghng"));
-//
-//    }
-//@PostConstruct
-//    public void init()
-//    {
-//        repository.save(item);
-//    }
-
-
-
